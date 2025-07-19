@@ -4,9 +4,10 @@
         branches:
           - feature/* # Trigger on pushes to feature branches
           - bugfix/*  # Trigger on pushes to bugfix branches
+          - hotfix/*  # Trigger on pushes to hotfix branches
       pull_request:
         branches:
-          - master      # Trigger on pull requests targeting the master branch
+          - main      # Trigger on pull requests targeting the master branch
       workflow_dispatch:  # Allow manual triggering
     
     jobs:
