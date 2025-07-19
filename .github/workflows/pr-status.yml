@@ -3,17 +3,27 @@
       push:
         branches:
           - feature/* # Trigger on pushes to feature branches
+          - bugfix/*  # Trigger on pushes to bugfix branches
+      pull_request:
+        branches:
+          - master      # Trigger on pull requests targeting the master branch
+      workflow_dispatch:  # Allow manual triggering
+    
     jobs:
       create_pr:
         runs-on: ubuntu-22.04
         steps:
           - uses: actions/checkout@v4
-          - name: Install Node.js
-            uses: actions/setup-node@v3
+          - name: Set up Node.js
+            uses: actions/setup-node@v4
             with:
               node-version: '18'
           - name: Install dependencies
             run: npm install
+          - name: Run build
+            run: npm run build
+          - name: Run tests
+            run: npm run test:unit
           - name: Run linters and formatters
             run: |
               npm run lint
