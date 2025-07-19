@@ -1,0 +1,29 @@
+    name: Create Pull Request
+    on:
+      push:
+        branches:
+          - feature/* # Trigger on pushes to feature branches
+    jobs:
+      create_pr:
+        runs-on: ubuntu-22.04
+        steps:
+          - uses: actions/checkout@v4
+          - name: Install Node.js
+            uses: actions/setup-node@v3
+            with:
+              node-version: '18'
+          - name: Install dependencies
+            run: npm install
+          - name: Run linters and formatters
+            run: |
+              npm run lint
+              npm run format
+          - name: Create Pull Request
+            run: |
+              gh pr create \
+                --base main \
+                --head ${{ github.ref_name }} \
+                --title "Automated pull request from ${{ github.ref_name }}" \
+                --body "This pull request was created automatically by GitHub Actions."
+            env:
+              GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
