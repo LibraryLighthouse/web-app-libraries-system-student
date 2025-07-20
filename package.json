@@ -12,10 +12,16 @@
     "build-only": "vite build",
     "type-check": "vue-tsc --build",
     "lint": "eslint . --fix",
-    "format": "prettier --write src/"
+    "format": "prettier --write src/",
+    "test": "jest"
   },
   "dependencies": {
+<<<<<<< HEAD
     "@tailwindcss/vite": "^4.1.11",
+=======
+    "@apollo/client": "^3.13.8",
+    "graphql": "^16.11.0",
+>>>>>>> ee5b3a61cc8c12d3cac43e40a4ca76566111243e
     "pinia": "^3.0.3",
     "tailwindcss": "^4.1.11",
     "vue": "^3.5.17",
@@ -24,6 +30,7 @@
   "devDependencies": {
     "@playwright/test": "^1.53.1",
     "@tsconfig/node22": "^22.0.2",
+    "@types/jest": "^30.0.0",
     "@types/jsdom": "^21.1.7",
     "@types/node": "^22.15.32",
     "@vitejs/plugin-vue": "^6.0.0",
