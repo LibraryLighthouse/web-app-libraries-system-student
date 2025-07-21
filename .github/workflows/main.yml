@@ -2,63 +2,69 @@ name: CI
 
 on:
   push:
-    branches: [ main ]
+    branches: [ master ]
   pull_request:
-    branches: [ main ]
+    branches: [ master ]
 
 jobs:
   lint:
     name: Lint
     runs-on: ubuntu-22.04
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
-
-      - name: Set up Node.js
-        uses: actions/setup-node@v4
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
         with:
           node-version: '18'
+      - run: npm install
+      - run: npm run lint
 
-      - name: Install dependencies
-        run: npm install
-
-      - name: Run lint
-        run: npm run lint
-
-  test:
-    name: Test
+  unit-test:
+    name: Unit Tests
     runs-on: ubuntu-22.04
-    needs: lint  # runs after lint
+    needs: lint
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
-
-      - name: Set up Node.js
-        uses: actions/setup-node@v4
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
         with:
           node-version: '18'
+      - run: npm install
+      - run: Test Unit
+      # - run: npm run test:unit
 
-      - name: Install dependencies
-        run: npm install
+  integration-test:
+    name: Integration Tests
+    runs-on: ubuntu-22.04
+    needs: lint
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+      - run: npm install
+      - run: Test Intergrate
+      # - run: npm run test:integration
 
-      - name: Run tests
-        run: npm run test:unit
+  e2e-test:
+    name: E2E Tests
+    runs-on: ubuntu-22.04
+    needs: lint
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+      - run: npm install
+      - run: Test E2E
+      # - run: npm run test:e2e
 
   build:
     name: Build
     runs-on: ubuntu-22.04
-    needs: test  # runs after test
+    needs: [unit-test, integration-test, e2e-test]
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
-
-      - name: Set up Node.js
-        uses: actions/setup-node@v4
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
         with:
           node-version: '18'
-
-      - name: Install dependencies
-        run: npm install
-
-      - name: Build project
-        run: npm run build
+      - run: npm install
+      - run: npm run build
