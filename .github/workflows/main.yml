@@ -28,7 +28,7 @@ jobs:
         with:
           node-version: '18'
       - run: npm install
-      - run: Test Unit
+      - run: echo "Test Unit"
       # - run: npm run test:unit
 
   integration-test:
@@ -41,7 +41,7 @@ jobs:
         with:
           node-version: '18'
       - run: npm install
-      - run: Test Intergrate
+      - run: echo "Test Intergrate"
       # - run: npm run test:integration
 
   e2e-test:
@@ -54,7 +54,7 @@ jobs:
         with:
           node-version: '18'
       - run: npm install
-      - run: Test E2E
+      - run: echo "Test E2E"
       # - run: npm run test:e2e
 
   build:
@@ -68,3 +68,16 @@ jobs:
           node-version: '18'
       - run: npm install
       - run: npm run build
+
+  deploy:
+    name: Deploy
+    runs-on: ubuntu-22.04
+    needs: build
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+      - run: npm install
+      - run: echo "Deployment"
+
