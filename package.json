@@ -16,10 +16,12 @@
     "test": "jest"
   },
   "dependencies": {
-    "@tailwindcss/vite": "^4.1.11",
     "@apollo/client": "^3.13.8",
+    "@tailwindcss/postcss": "^4.1.11",
+    "@tailwindcss/vite": "^4.1.11",
     "graphql": "^16.11.0",
     "pinia": "^3.0.3",
+    "postcss": "^8.5.6",
     "tailwindcss": "^4.1.11",
     "vue": "^3.5.17",
     "vue-router": "^4.5.1"
