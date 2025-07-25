@@ -65,7 +65,7 @@ import { ref } from 'vue';
 import { useDarkMode } from '@/composables/useDarkMode.ts';
 import { RouterLink} from 'vue-router';
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
-import Menu from './userMenu.vue';
+import Menu from './Menu.vue';
 // const isOpen = ref(false);
 const navItems = ref([
   { name: 'Home', path: '/' },
