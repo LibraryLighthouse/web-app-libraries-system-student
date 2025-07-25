@@ -1,5 +1,5 @@
 <script setup lang="ts">
 </script>
 <template>
-  <div>Contact Page</div>
+  <div>Library Page</div>
 </template>
