@@ -5,11 +5,11 @@ import AppHeader from '@/components/Header/userHeader.vue'
 </script>
 
 <template>
-  <div>
-    <AppHeader />
-    <main >
-      <RouterView/>
-    </main>
-  </div>
+  <header>
+    <div>
+    <AppHeader/>
+    <AppFooter/>
+    </div>
+  </header>
+  <RouterView />
 </template>
-
