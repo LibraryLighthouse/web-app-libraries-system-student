@@ -81,4 +81,7 @@ jobs:
           node-version: '18'
       - run: npm install
       - run: echo "Deployment"
-
+      - name: Deploy to Vercel
+        run: |
+          npm install -g vercel
+          vercel --version
