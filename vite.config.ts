@@ -9,7 +9,8 @@ import tailwindcss from '@tailwindcss/vite'
 export default defineConfig({
   server:{
     host: '0.0.0.0',
-    port: 3000
+    port: 3000,
+    allowedHosts: ['sovina-testing.itedev.online']
   },
   plugins: [
 
