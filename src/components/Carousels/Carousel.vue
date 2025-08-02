@@ -4,7 +4,7 @@
       <!-- Carousel Items -->
       <div
         class="relative overflow-hidden rounded-lg
-               h-[180px] sm:h-[220px] md:h-[360px] lg:h-[450px]"
+               h-[180px] sm:h-[220px] md:h-[360px] lg:h-[600px]"
       >
         <div
           v-for="(slide, index) in slides"
