@@ -1,8 +1,5 @@
 <script setup lang="ts">
 </script>
-
 <template>
-  <div>
-    <h1>This is search result</h1>
-  </div>
+  <div>Collections Page</div>
 </template>

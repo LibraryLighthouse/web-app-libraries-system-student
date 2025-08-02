@@ -1,5 +1,6 @@
-// router/index.ts
 import { createRouter, createWebHistory } from 'vue-router'
+
+// Static import for frequently used pages
 import HomeView from '../views/HomeView.vue'
 
 const router = createRouter({
@@ -16,11 +17,26 @@ const router = createRouter({
       component: () => import('../views/AboutView.vue'),
     },
     {
+      path: '/library',
+      name: 'library',
+      component: () => import('../views/CollectionView.vue'),
+    },
+    {
+      path: '/resources',
+      name: 'resources',
+      component: () => import('../views/ResourcesView.vue'),
+    },
+    {
+      path: '/databases',
+      name: 'databases',
+      component: () => import('../views/DatabaseView.vue'),
+    },
+    {
       path: '/contact',
       name: 'contact',
-      component: () => import('../views/LibraryView.vue'),
-    },
+      component: () => import('../views/ContactView.vue'),
+    }
   ],
 })
 
-export default router;
+export default router
