@@ -1,10 +1,11 @@
 <script setup lang="ts">
-// Home page
-// import {useDark} from "@vueuse/core";
+import Carousel from '@/components/Carousels/Carousel.vue'
+import SearchPage from '@/components/Searchs/SearchPage.vue'
 </script>
 
 <template>
-  <main>
-    <h1>This is home page</h1>
-  </main>
+  <Carousel />
+  <section>
+    <SearchPage />
+  </section>
 </template>

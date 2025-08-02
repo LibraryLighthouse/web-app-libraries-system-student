@@ -17,11 +17,12 @@
           <ul class="flex gap-2">
             <li v-for="(item, index) in navItems" :key="index">
               <RouterLink
-              :to="item.path"
-              class="block hover:underline hover:bg-gray-200 dark:hover:bg-gray-700 hover:rounded-lg p-2 transition duration-300"
-              >
-              {{ item.name }}
-            </RouterLink>
+                :to="item.path"
+                class="block hover:underline hover:bg-gray-200 aria-[current=page]:text-blue-600 dark:hover:bg-gray-700 hover:rounded-lg p-2 transition duration-300"
+                :aria-current="$route.path === item.path ? 'page' : null"
+                >
+                {{ item.name }}
+                </RouterLink>
           </li>
         </ul>
       </nav>
@@ -56,7 +57,6 @@
 </div>
 </section>
 </header>
-
 
 </template>
 
