@@ -26,6 +26,7 @@
           </ul>
         </nav>
 
+<<<<<<< HEAD
         <button
           class="hidden lg:block border-[0.5px] border-blue-900 px-2 py-2 rounded-lg hover:bg-gray-200 hover:text-black dark:hover:bg-[#014164] dark:hover:text-[#014164] transition duration-200"
           @click="toggleDarkMode"
@@ -48,6 +49,8 @@
       </div>
     </section>
   </header>
+=======
+>>>>>>> bd58984f9a78fb474e036e65755c65e7f984c72e
 </template>
 
 <script setup lang="ts">
